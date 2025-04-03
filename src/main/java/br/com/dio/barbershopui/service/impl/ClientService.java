@@ -18,7 +18,6 @@ public class ClientService implements IClientService {
     public ClientEntity save(final ClientEntity entity) {
         queryService.verifyEmail(entity.getEmail());
         queryService.verifyPhone(entity.getPhone());
-
         return repository.save(entity);
     }
 
