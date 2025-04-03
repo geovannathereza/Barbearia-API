@@ -7,27 +7,21 @@ import br.com.dio.barbershopui.repository.IClientRepository;
 import br.com.dio.barbershopui.service.query.IClientQueryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Objects;
 
 @Service
 @AllArgsConstructor
 public class ClientQueryService implements IClientQueryService {
-
     private final IClientRepository repository;
 
     @Override
     public ClientEntity findById(final long id) {
-        return repository.findById(id).orElseThrow(
-                () -> new NotFoundException("Não foi encontrado o cliente de id " + id)
-        );
+        return repository.findById(id).orElseThrow(() -> new NotFoundException("Não foi encontrado o cliente de id " + id));
     }
 
     @Override
-    public List<ClientEntity> list() {
-        return repository.findAll();
-    }
+    public List<ClientEntity> list() { return repository.findAll(); }
 
     @Override
     public void verifyPhone(final String phone) {
