@@ -20,9 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
-
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 
@@ -30,7 +28,6 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 @RequestMapping("clients")
 @AllArgsConstructor
 public class ClientController {
-
     private final IClientService service;
     private final IClientQueryService queryService;
     private final IClientMapper mapper;
@@ -52,9 +49,7 @@ public class ClientController {
 
     @DeleteMapping("{id}")
     @ResponseStatus(NO_CONTENT)
-    void delete(@PathVariable final long id){
-        service.delete(id);
-    }
+    void delete(@PathVariable final long id){ service.delete(id); }
 
     @GetMapping("{id}")
     ClientDetailResponse findById(@PathVariable final long id){
@@ -67,5 +62,4 @@ public class ClientController {
         var entities = queryService.list();
         return mapper.toListResponse(entities);
     }
-
 }
