@@ -10,11 +10,9 @@ import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-
 import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -34,13 +32,10 @@ public class ClientEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-
     @Column(nullable = false, length = 150)
     private String name;
-
     @Column(nullable = false, length = 150)
     private String email;
-
     @Column(nullable = false, length = 11, columnDefinition = "bpchar(11)")
     private String phone;
 
@@ -56,7 +51,6 @@ public class ClientEntity {
                 Objects.equals(email, that.email) &&
                 Objects.equals(phone, that.phone);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, name, email, phone);
