@@ -7,7 +7,6 @@ import br.com.dio.barbershopui.repository.IScheduleRepository;
 import br.com.dio.barbershopui.service.query.IScheduleQueryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
-
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -19,9 +18,7 @@ public class ScheduleQueryService implements IScheduleQueryService {
 
     @Override
     public ScheduleEntity findById(final long id) {
-        return repository.findById(id).orElseThrow(
-                () -> new NotFoundException("Agendamento não encontrado")
-        );
+        return repository.findById(id).orElseThrow(() -> new NotFoundException("Agendamento não encontrado") );
     }
 
     @Override
@@ -36,5 +33,4 @@ public class ScheduleQueryService implements IScheduleQueryService {
             throw new ScheduleInUseException(message);
         }
     }
-
 }
